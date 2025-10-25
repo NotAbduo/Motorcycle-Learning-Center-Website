@@ -1,0 +1,145 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #ff4b2b, #ff6b81); /* Lightened the red gradient */
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.logout-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ff4b2b;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #ff3b2e;
+}
+
+
+
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Title */
+.dashboard-container h1 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Tab Grid */
+.tab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* Individual Tab Style */
+.tab {
+    background: #fff;
+    border: 2px solid #ff4b2b;
+    color: #ff4b2b;
+    border-radius: 15px;
+    padding: 40px 20px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(255, 75, 43, 0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+/* Tab Icon Styling */
+.tab i {
+    font-size: 36px;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Tab Hover Effects */
+.tab:hover {
+    background-color: #ff3b2e;  /* Darker red for better contrast */
+    color: #fff;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(255, 75, 43, 0.25);
+}
+
+.tab:hover i {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #ff4b2b;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  background: #e63a28;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .dashboard-container h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .tab {
+        padding: 30px 15px;
+        font-size: 16px;
+    }
+
+    .tab i {
+        font-size: 28px;
+    }
+}

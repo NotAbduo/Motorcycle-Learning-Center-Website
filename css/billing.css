@@ -1,0 +1,479 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ff4b2b, #ff6b81);
+  color: #fff;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  max-width: 1400px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.highlight-label {
+  display: inline-block;
+  background: #ff4b2b;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+form input, form select, form button {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  border: 2px solid #ff4b2b;
+  outline: none;
+}
+
+form input, form select {
+  background: #fff;
+  color: #333;
+}
+
+form button {
+  background: #ff4b2b;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #e63a28;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+table th, table td {
+  padding: 12px 14px;
+  border: 1px solid #eee;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table th {
+  background: #ff4b2b;
+  color: white;
+}
+
+table td:first-child {
+  font-weight: bold;
+}
+
+table td a button {
+  background: #ff4b2b;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+table td a button:hover {
+  background: #e63a28;
+}
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #ff4b2b;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  background: #e63a28;
+}
+
+#exportModal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#exportForm {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#exportForm h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+#exportForm label {
+  margin: 5px 0;
+  display: block;
+}
+
+#exportForm input, #exportForm select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#exportForm button {
+  margin-top: 15px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #ff4b2b;
+  color: white;
+  cursor: pointer;
+}
+
+#exportForm button:hover {
+  background: #e63a28;
+}
+
+#exportForm button[type="button"]:last-child {
+  background: #777;
+}
+
+#exportForm button[type="button"]:last-child:hover {
+  background: #555;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px;
+  }
+  table th, table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+.page-content {
+  margin-top: 150px;
+}
+
+tr.bg-gray-200 td { 
+  background-color:#f3f4f6; 
+}
+
+.status-paid {
+    color: green;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: red;
+    font-weight: bold;
+}
+
+.status-partial {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Pay Slip Column Styling */
+.payslip-column {
+    width: 380px;
+    min-width: 380px;
+}
+
+.payslip-cell {
+    width: 380px;
+    min-width: 380px;
+    padding: 8px !important;
+}
+
+.payslip-container-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.rate-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.rate-display {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f9fafb;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.rate-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rate-item label {
+    font-size: 0.8em;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.rate-item .value {
+    font-weight: 700;
+    font-size: 1em;
+    color: #111827;
+}
+
+.rate-update-form {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.rate-input {
+    width: 55px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.btn-small {
+    padding: 5px 10px !important;
+    font-size: 0.8em !important;
+    white-space: nowrap;
+}
+
+.rate-indicator {
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.7em;
+    font-weight: 600;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.custom-rate-active {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fbbf24;
+}
+
+.custom-rate-active i {
+    color: #f59e0b;
+    font-size: 0.9em;
+}
+
+.normal-rate-active {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #34d399;
+}
+
+.normal-rate-active i {
+    color: #10b981;
+    font-size: 0.9em;
+}
+
+.btn-custom-rate {
+    padding: 6px 10px;
+    background-color: #ff4b2b;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.8em;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-custom-rate:hover {
+    background-color: #e63a28;
+}
+
+.btn-custom-rate i {
+    font-size: 0.9em;
+}
+
+.custom-hours-badge {
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.btn.update {
+    background: #ff4b2b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 0.9em;
+}
+
+.btn.update:hover {
+    background: #e63a28;
+}
+/* Add these styles to your existing css/billing.css file */
+
+/* Pay Slip Button Styles */
+.btn-payslip {
+	background-color: #ff4b2b;
+	color:white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
+}
+
+.btn-payslip:hover {
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+    background-color: #e63a28;
+}
+
+.btn-payslip:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
+}
+
+.btn-payslip i {
+    font-size: 14px;
+}
+
+/* Adjust table layout for new column */
+table th:last-child,
+table td:last-child {
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .btn-payslip {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .btn-payslip span {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+    
+    .btn-payslip {
+        padding: 4px 8px;
+    }
+    
+    .btn-payslip i {
+        font-size: 12px;
+    }
+}
+form input, form select, form button {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  border: 2px solid #ff4b2b;
+  outline: none;
+}
+
+/* Compact hours input styling */
+.hours-input {
+  width: 60px !important;
+  padding: 6px 4px !important;
+  font-size: 0.9em !important;
+  text-align: center;
+  border: 1px solid #d1d5db !important;
+  border-radius: 4px !important;
+}
+
+/* Inline form for update hours */
+.update-hours-form {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 0 !important;
+  flex-direction: row !important;
+}

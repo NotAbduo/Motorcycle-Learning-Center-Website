@@ -1,0 +1,311 @@
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ff4b2b, #ff6b81);
+  color: #fff;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+  min-height: 100vh;
+}
+
+/* === Dashboard Container === */
+.dashboard-container {
+  max-width: 1200px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* === Labels / Highlights === */
+.highlight-label {
+  display: inline-block;
+  background: #ff4b2b;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+/* === Forms === */
+form, .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+form input, form select, form button,
+.form-group input, .form-group textarea {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  border: 2px solid #ff4b2b;
+  outline: none;
+}
+
+form input, form select, 
+.form-group input, .form-group textarea {
+  background: #fff;
+  color: #333;
+}
+
+form button, .btn-add {
+  background: #ff4b2b;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 10px 16px;
+}
+
+form button:hover, .btn-add:hover {
+  background: #e63a28;
+}
+
+.btn-delete {
+  background: #c82333;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-delete:hover {
+  background: #a71d2a;
+}
+
+/* === Tables === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+table th, table td {
+  padding: 12px 14px;
+  border: 1px solid #eee;
+  text-align: left;
+}
+
+table th {
+  background: #ff4b2b;
+  color: white;
+}
+
+table td:first-child {
+  font-weight: bold;
+}
+
+table td a button {
+  background: #ff4b2b;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+table td a button:hover {
+  background: #e63a28;
+}
+
+/* === Navigation / Back Button === */
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #ff4b2b;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  background: #e63a28;
+}
+
+/* === Modal === */
+#exportModal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#exportForm {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#exportForm h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+#exportForm label {
+  margin: 5px 0;
+  display: block;
+}
+
+#exportForm input, #exportForm select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#exportForm button {
+  margin-top: 15px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #ff4b2b;
+  color: white;
+  cursor: pointer;
+}
+
+#exportForm button:hover {
+  background: #e63a28;
+}
+
+#exportForm button[type="button"]:last-child {
+  background: #777;
+}
+
+#exportForm button[type="button"]:last-child:hover {
+  background: #555;
+}
+
+/* === Custom Sections === */
+.custom-rate-section {
+  background: #ffe5e0; /* soft red tint */
+  padding: 10px;
+  margin-top: 10px;
+  border-left: 3px solid #ff4b2b;
+  border-radius: 6px;
+  color: #333;
+}
+
+.custom-rate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: white;
+  margin-bottom: 6px;
+  border-radius: 4px;
+}
+
+.add-custom-form {
+  background: #fff2ef;
+  padding: 15px;
+  margin-top: 10px;
+  border: 2px dashed #ff4b2b;
+  border-radius: 6px;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 120px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+/* === Summary / Logs === */
+.summary-box {
+  background: linear-gradient(135deg, #ff4b2b 0%, #ff6b81 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.log-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px;
+  }
+  table th, table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+/* === Page Content Spacer === */
+.page-content {
+  margin-top: 150px; /* adjust as needed */
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

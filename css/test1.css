@@ -1,0 +1,105 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #ff4b2b, #ff6b81);
+    color: white;
+    padding: 30px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 60px auto 0 auto; /* <-- added top margin to lower content */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+h1 { font-size: 36px; text-align: center; margin-bottom: 30px; }
+
+.question-card {
+    background-color: rgba(0, 0, 0, 0.6); /* <-- slightly lighter for more contrast */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* <-- slightly lighter shadow */
+}
+
+label { display: block; margin-top: 10px; margin-bottom: 5px; font-weight: bold; }
+
+input[type="text"], select {
+    width: 100%; padding: 10px; border-radius: 8px; border: none; margin-bottom: 10px;
+}
+
+input[type="file"] { margin-bottom: 10px; }
+
+button {
+    padding: 10px 20px;
+    background-color: white;
+    color: #ff4b2b;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover { background-color: #ffe4e1; }
+
+img {
+    max-height: 100px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+hr { border: 0; height: 1px; background: rgba(255, 255, 255, 0.3); margin: 20px 0; } /* <-- lighter hr line */
+
+details summary {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3); /* <-- much lighter background for summary */
+}
+
+details[open] summary { background: rgba(0, 0, 0, 0.4); /* even lighter when open */ }
+
+.delete-image-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    margin-left: 10px;
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ff4b2b;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #ff3b2e;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

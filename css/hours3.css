@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ff4b2b, #ff6b81);
+  color: #fff;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.highlight-label {
+  display: inline-block;
+  background: #ff4b2b;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+form input, form select, form button {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  border: 2px solid #ff4b2b;
+  outline: none;
+}
+
+form input, form select {
+  background: #fff;
+  color: #333;
+}
+
+form button {
+  background: #ff4b2b;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #e63a28;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+table th, table td {
+  padding: 12px 14px;
+  border: 1px solid #eee;
+  text-align: left;
+}
+
+table th {
+  background: #ff4b2b;
+  color: white;
+}
+
+table td:first-child {
+  font-weight: bold;
+}
+
+table td a button {
+  background: #ff4b2b;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+table td a button:hover {
+  background: #e63a28;
+}
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #ff4b2b;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  background: #e63a28;
+}
+
+#exportModal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#exportForm {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#exportForm h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+#exportForm label {
+  margin: 5px 0;
+  display: block;
+}
+
+#exportForm input, #exportForm select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#exportForm button {
+  margin-top: 15px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #ff4b2b;
+  color: white;
+  cursor: pointer;
+}
+
+#exportForm button:hover {
+  background: #e63a28;
+}
+
+#exportForm button[type="button"]:last-child {
+  background: #777;
+}
+
+#exportForm button[type="button"]:last-child:hover {
+  background: #555;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  form input,
+  form select,
+  form button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none; /* hide headers on small screens */
+  }
+
+  tr {
+    margin-bottom: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    padding: 10px;
+  }
+
+  td {
+    text-align: left;
+    padding: 10px 8px;
+    border: none;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    color: #ff4b2b;
+    margin-bottom: 4px;
+  }
+
+  .back-button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  h2.instructor-name {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}
+
+
